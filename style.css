@@ -141,6 +141,227 @@ button {
 }
 
 
+/*modal*/
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #7194d57f;
+  backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_active {
+  display: flex;
+}
+
+.modal__content {
+  width: 500px;
+  padding: 24px;
+  background-color: #F0F4FC;
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  margin: 0 10px;
+}
+
+.modal__close-btn {
+  width: 52px;
+  height: 52px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: end;
+  cursor: pointer;
+}
+
+.modal__close-btn:hover {
+  opacity: 0.8;
+}
+
+.modal__close-btn span {
+  position: relative;
+  width: 12px;
+  height: 12px;
+}
+
+.modal__close-btn span::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  background-color: #000000;
+  transform: rotate(45deg);
+  border-radius: 2px;
+  top: 5px;
+  left: -3px;
+}
+
+.modal__close-btn span::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 18px;
+  background-color: #000000;
+  transform: rotate(45deg);
+  border-radius: 2px;
+  top: -3px;
+  left: 5px;
+}
+
+.modal__title {
+  font-size: 24px;
+  color: #323232;
+}
+
+.modal__form-sign-in {
+  width: 100%;
+  margin: 18px 0 4px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__form-input {
+  width: 100%;
+  height: 73px;
+  background-color: #D7E2F6;
+  border-radius: 10px;
+  padding: 0 24px;
+  border: none;
+  font-size: 18px;
+  color: #1F4284;
+}
+
+.modal__form-input::placeholder {
+  font-size: 18px;
+  color: #1F4284;
+}
+
+.modal__email-phone {
+  margin-bottom: 4px;
+}
+
+.modal__remember-password {
+  margin: 24px 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  align-self: start;
+}
+
+.modal__remember-password-label {
+  font-size: 18px;
+  color: #323232;
+  margin-left: 35px;
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+}
+
+.modal__remember-password-checkbox {
+  display: none;
+}
+
+.modal__remember-password-label::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  border: 3px solid #323232;
+  border-radius: 3px;
+  top: 3px;
+  left: -35px;
+  cursor: pointer;
+}
+
+.modal__remember-password-checkbox:checked + .modal__remember-password-label::before {
+	background-color: transparent;
+}
+
+.modal__remember-password-checkbox:checked + .modal__remember-password-label::after {
+  content: "\2714";
+  position: absolute;
+  left: -33px;
+}
+
+.modal__restore-password-btn {
+  font-size: 20px;
+  color: #244C98;
+  cursor: pointer;
+  align-self: start;
+}
+
+.modal__restore-password-btn:hover {
+  color: #456cba;
+}
+
+.modal__sign-in,
+.modal__sign-up {
+  margin-top: 36px;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #244C98;
+  color: #ffffff;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal__sign-up {
+  margin-top: 4px;
+  background-color: transparent;
+  color: #244C98;
+  border: 1px solid #244C98;
+}
+
+.modal__sign-in:hover {
+  background-color: #1e4284;
+}
+
+.modal__sign-up:hover {
+  background-color: #1e4284;
+  color: #ffffff;
+  border: 1px solid #1e4284;
+}
+
+
+/*loader*/
+
+.loader {
+  border-top: 3px solid #ffffff;
+  border-left: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
+  border-right: 3px solid transparent;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  z-index: 90;
+  animation: loader 0.8s linear infinite;
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/*tablet, mobile*/
+
 @media screen and (max-width: 1600px) {
   .main__article-title {
     font-size: 26px;
@@ -237,9 +458,31 @@ button {
   }
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 380px) {
   .main__article-btn-title {
     font-size: 12px;
     margin-right: 10px;
+  }
+
+  .modal__content {
+    padding: 16px;
+  }
+
+  .modal__form-input {
+    height: 50px;
+  }
+
+  .modal__remember-password {
+    margin: 18px 0;
+  }
+
+  .modal__sign-in,
+  .modal__sign-up {
+    margin-top: 20px;
+    height: 50px;
+  }
+
+  .modal__sign-up {
+    margin-top: 4px;
   }
 }
